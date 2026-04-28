@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pagina di supporto ufficiale per l'app Sport and Review." />
+  <title>Supporto | Sport and Review</title>
+  <style>
+    :root {
+      --primary: #002a3a;
+      --primary-dark: #001c27;
+      --accent: #0647ff;
+      --accent-soft: #e8efff;
+      --orange: #ff8a00;
+      --text: #1f2028;
+      --muted: #6f7480;
+      --card: #ffffff;
+      --bg: #f6f7fb;
+      --shadow: 0 16px 35px rgba(0, 42, 58, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #0b4d65 0%, var(--primary) 42%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 42px 22px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 280px;
+      height: 280px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-inner,
+    main {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-wrap {
+      width: 92px;
+      height: 92px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.1);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 64px);
+      letter-spacing: -1.7px;
+      line-height: 1;
+    }
+
+    .hero p {
+      margin: 20px 0 0;
+      max-width: 700px;
+      font-size: clamp(18px, 3vw, 26px);
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    main {
+      margin-top: -42px;
+      padding: 0 22px 56px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      border: 1px solid rgba(0, 42, 58, 0.05);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.4px;
+    }
+
+    .card h3 {
+      margin: 22px 0 8px;
+      font-size: 19px;
+    }
+
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-12 { grid-column: span 12; }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .highlight {
+      background: linear-gradient(140deg, #0928d9, #0647ff);
+      color: #fff;
+    }
+
+    .highlight p,
+    .highlight li {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .highlight a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eef0f5;
+    }
+
+    .info-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .label {
+      width: 155px;
+      flex: 0 0 155px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .value {
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 16px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      margin-top: 12px;
+      box-shadow: 0 10px 22px rgba(6, 71, 255, 0.26);
+    }
+
+    .cta:hover {
+      text-decoration: none;
+      filter: brightness(0.95);
+    }
+
+    .section-title {
+      margin: 36px 0 16px;
+      font-size: 30px;
+      letter-spacing: -0.6px;
+    }
+
+    .faq details {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: 0 10px 24px rgba(0, 42, 58, 0.08);
+      margin-bottom: 14px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .faq p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 28px 16px 0;
+      font-size: 14px;
+    }
+
+    .placeholder-note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #fff6e8;
+      color: #7a4800;
+      font-weight: 650;
+      border: 1px solid #ffe0ad;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        padding-top: 30px;
+      }
+
+      .brand {
+        align-items: flex-start;
+      }
+
+      .logo-wrap {
+        width: 74px;
+        height: 74px;
+        border-radius: 22px;
+      }
+
+      .span-7,
+      .span-5,
+      .span-6,
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .info-list li {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .label {
+        width: auto;
+        flex: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <div class="logo-wrap" aria-hidden="true">
+          <img src="logo.png" alt="Sport and Review logo" />
+        </div>
+        <div>
+          <h1>Sport and Review</h1>
+          <p>Supporto ufficiale per utenti, recensione App Store e assistenza sull'app.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" aria-label="Informazioni principali">
+      <article class="card span-7">
+        <h2>Come possiamo aiutarti?</h2>
+        <p>
+          Questa pagina raccoglie le informazioni di supporto per l'app <strong>Sport and Review</strong>,
+          inclusi contatti, funzionalità principali, privacy, gestione account e assistenza tecnica.
+        </p>
+        <div class="badge-row" aria-label="Funzionalità principali">
+          <span class="badge">Prenotazione campi</span>
+          <span class="badge">Creazione partite</span>
+          <span class="badge">Community sportiva</span>
+          <span class="badge">Recensioni e profilo</span>
+        </div>
+        <div class="placeholder-note">
+          Sostituisci tutti i valori tra parentesi quadre con i dati reali prima della pubblicazione.
+        </div>
+      </article>
+
+      <article class="card span-5 highlight">
+        <h2>Contatto supporto</h2>
+        <p>Per assistenza, segnalazioni o problemi con l'app, contatta il team di supporto.</p>
+        <ul class="info-list">
+          <li><span class="label">Email</span><span class="value">[support@emailazienda.com]</span></li>
+          <li><span class="label">Tempi risposta</span><span class="value">[es. entro 2 giorni lavorativi]</span></li>
+          <li><span class="label">Lingue</span><span class="value">[Italiano, Inglese]</span></li>
+        </ul>
+        <a class="cta" href="mailto:[support@emailazienda.com]">Contatta il supporto</a>
+      </article>
+
+      <article class="card span-6">
+        <h2>Informazioni app</h2>
+        <ul class="info-list">
+          <li><span class="label">Nome app</span><span class="value">Sport and Review</span></li>
+          <li><span class="label">Società</span><span class="value">[Nome società / ragione sociale]</span></li>
+          <li><span class="label">Sviluppatore</span><span class="value">[Nome sviluppatore o società]</span></li>
+          <li><span class="label">Piattaforma</span><span class="value">iOS</span></li>
+          <li><span class="label">Versione</span><span class="value">[Versione app]</span></li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>Privacy e dati</h2>
+        <p>
+          La gestione dei dati personali dell'utente è descritta nella Privacy Policy ufficiale dell'app.
+        </p>
+        <ul class="info-list">
+          <li><span class="label">Privacy Policy</span><span class="value"><a href="[INCOLLA_QUI_LINK_PRIVACY_POLICY]">Apri Privacy Policy</a></span></li>
+          <li><span class="label">Dati account</span><span class="value">[Descrivi sinteticamente i dati gestiti: nome, email, profilo, prenotazioni, recensioni, ecc.]</span></li>
+          <li><span class="label">Terze parti</span><span class="value">[Indica eventuali servizi terzi usati: analytics, mappe, pagamenti, notifiche, ecc.]</span></li>
+        </ul>
+      </article>
+
+      <article class="card span-12">
+        <h2>Gestione account e cancellazione dati</h2>
+        <p>
+          Se l'app consente la creazione di un account, l'utente può richiedere assistenza per modifica,
+          disattivazione o cancellazione dell'account e dei dati associati.
+        </p>
+        <ul class="info-list">
+          <li><span class="label">Richiesta account</span><span class="value">Scrivere a [support@emailazienda.com] indicando l'email associata all'account.</span></li>
+          <li><span class="label">Cancellazione dati</span><span class="value">[Descrivi procedura o schermata in-app, se disponibile.]</span></li>
+          <li><span class="label">Conservazione</span><span class="value">[Indica eventuali tempi o criteri di conservazione dati.]</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <h2 class="section-title">Domande frequenti</h2>
+    <section class="faq" aria-label="FAQ">
+      <details>
+        <summary>Che cos'è Sport and Review?</summary>
+        <p>[Descrivi brevemente l'app: esempio, una piattaforma per trovare centri sportivi, prenotare campi, creare partite e interagire con altri utenti.]</p>
+      </details>
+
+      <details>
+        <summary>Come posso ricevere assistenza?</summary>
+        <p>Puoi contattare il supporto all'indirizzo [support@emailazienda.com], indicando il problema, il dispositivo utilizzato, la versione iOS e la versione dell'app.</p>
+      </details>
+
+      <details>
+        <summary>Come posso segnalare un problema tecnico?</summary>
+        <p>Invia una descrizione dettagliata del problema, eventuali screenshot e i passaggi necessari per riprodurlo. Il team analizzerà la segnalazione e risponderà secondo i tempi indicati.</p>
+      </details>
+
+      <details>
+        <summary>Come posso modificare o eliminare il mio account?</summary>
+        <p>[Inserisci qui le istruzioni specifiche: percorso in-app oppure richiesta via email.]</p>
+      </details>
+
+      <details>
+        <summary>Come posso consultare la Privacy Policy?</summary>
+        <p>La Privacy Policy è disponibile al seguente link: <a href="[INCOLLA_QUI_LINK_PRIVACY_POLICY]">Privacy Policy</a>.</p>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <p>© [Anno] [Nome società]. Tutti i diritti riservati.</p>
+      <p>Sport and Review — Support URL ufficiale per App Store Connect.</p>
+    </footer>
+  </main>
+</body>
+</html>
